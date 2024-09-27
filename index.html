@@ -232,19 +232,87 @@
             nav a {
                 font-size: 0.9rem;
             }
-       <!-- Asistente Virtual -->
-<div class="chatbot">
-    <div class="chat-header">
-        <h2>Asistente Virtual</h2>
-        <button class="close-chat" onclick="toggleChat()">✖</button>
-    </div>
-    <div class="chat-body" id="chatBody">
-        <div class="chat-message bot-message">¡Hola! ¿En qué puedo ayudarte hoy?</div>
-    </div>
-    <input type="text" id="userInput" placeholder="Escribe tu mensaje..." onkeydown="if(event.key === 'Enter'){sendMessage();}">
-    <button onclick="sendMessage()">Enviar</button>
-</div>
-<button class="open-chat" onclick="toggleChat()">🗨️</button>
+            /* Estilos del asistente virtual */
+.chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+}
+
+.chat-header {
+    background-color: #222;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-body {
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.chat-message {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bot-message {
+    background-color: #f1f1f1;
+    text-align: left;
+}
+
+.user-message {
+    background-color: #ff6347;
+    color: white;
+    text-align: right;
+}
+
+input[type="text"] {
+    width: calc(100% - 100px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff6347; /* Cambia el color al pasar el ratón */
+}
+
+.open-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff6347;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
  }
     </style>
 </head>
@@ -307,7 +375,19 @@
 
                 <label for="message">Mensaje</label>
                 <textarea id="message" name="message" rows="4" placeholder="Tu mensaje" required></textarea>
-
+ <!-- Asistente Virtual -->
+<div class="chatbot">
+    <div class="chat-header">
+        <h2>Asistente Virtual</h2>
+        <button class="close-chat" onclick="toggleChat()">✖</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <div class="chat-message bot-message">¡Hola! ¿En qué puedo ayudarte hoy?</div>
+    </div>
+    <input type="text" id="userInput" placeholder="Escribe tu mensaje..." onkeydown="if(event.key === 'Enter'){sendMessage();}">
+    <button onclick="sendMessage()">Enviar</button>
+</div>
+<button class="open-chat" onclick="toggleChat()">🗨️</button>
                 <button type="submit">Enviar</button>
             </form>
         </section>
