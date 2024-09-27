@@ -327,7 +327,7 @@
                 <div class="mission">
                     <h2>Misión</h2>
                     <p>
-                        En Demoliciones HS, nuestra misión es proporcionar servicios de demolición de alta calidad y 
+                        Nuestra misión es proporcionar servicios de demolición de alta calidad y 
                         garantizar la seguridad y satisfacción de nuestros clientes.
                     </p>
                 </div>
@@ -384,6 +384,10 @@
         </div>
         <div class="chat-body" id="chatBody">
             <div class="chat-message bot-message">¡Hola! ¿En qué puedo ayudarte hoy?</div>
+            <div class="chat-message bot-message" id="submenu" style="display:none;">
+                <button onclick="showContactOptions()">Contacto</button>
+                <button onclick="downloadPortfolio()">Portafolio</button>
+            </div>
         </div>
         <input type="text" id="userInput" placeholder="Escribe tu mensaje..." onkeydown="if(event.key === 'Enter'){sendMessage();}">
         <button onclick="sendMessage()">Enviar</button>
@@ -394,6 +398,9 @@
         function toggleChat() {
             const chatbot = document.querySelector('.chatbot');
             chatbot.style.display = chatbot.style.display === 'none' || chatbot.style.display === '' ? 'flex' : 'none';
+            if (chatbot.style.display === 'flex') {
+                document.getElementById('submenu').style.display = 'none'; // Oculta el submenú al abrir
+            }
         }
 
         function sendMessage() {
@@ -411,12 +418,18 @@
             // Respuesta del bot
             let botResponse;
             const userMessageText = userInput.value.toLowerCase();
-            if (userMessageText.includes('misión')) {
-                botResponse = "Nuestra misión es proporcionar servicios de demolición de alta calidad.";
-            } else if (userMessageText.includes('visión')) {
-                botResponse = "Nuestra visión es ser la empresa líder en demoliciones a nivel nacional.";
+
+            if (userMessageText.includes('hola') || userMessageText.includes('ayuda')) {
+                botResponse = "¡Hola! ¿Cómo puedo ayudarte? Aquí tienes algunas opciones:";
+                document.getElementById('submenu').style.display = 'block'; // Muestra el submenú
+                chatBody.appendChild(document.getElementById('submenu'));
             } else if (userMessageText.includes('contacto')) {
-                botResponse = "Puedes contactarnos a través de nuestro formulario en la página.";
+                botResponse = "Puedes contactarnos a través de nuestro formulario, WhatsApp o email: ejemplo@gmail.com";
+                document.getElementById('submenu').style.display = 'none'; // Oculta el submenú
+            } else if (userMessageText.includes('portafolio')) {
+                botResponse = "¡Aquí tienes tu portafolio!";
+                downloadPortfolio(); // Llama a la función de descarga
+                document.getElementById('submenu').style.display = 'none'; // Oculta el submenú
             } else {
                 botResponse = "Lo siento, no entiendo tu pregunta. ¿Puedes intentar de nuevo?";
             }
@@ -431,7 +444,25 @@
             userInput.value = '';
             chatBody.scrollTop = chatBody.scrollHeight; // Desplazar hacia abajo
         }
+
+        function showContactOptions() {
+            const chatBody = document.getElementById('chatBody');
+            const contactOptions = "Puedes contactarnos a través de nuestro formulario, WhatsApp o email: ejemplo@gmail.com";
+            const botMessage = document.createElement('div');
+            botMessage.classList.add('chat-message', 'bot-message');
+            botMessage.textContent = contactOptions;
+            chatBody.appendChild(botMessage);
+        }
+
+        function downloadPortfolio() {
+            // Aquí puedes poner el enlace real a tu archivo PDF
+            const link = document.createElement('a');
+            link.href = 'URL_DE_TU_PORTAFOLIO.pdf'; // Reemplaza con el enlace real a tu portafolio
+            link.download = 'Portafolio_Demoliciones_HST.pdf'; // Nombre del archivo que se descargará
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     </script>
 </body>
 </html>
-
