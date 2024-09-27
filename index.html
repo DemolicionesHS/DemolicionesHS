@@ -75,17 +75,24 @@
         }
 
         .mission, .vision {
-            flex: 1;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            min-width: 280px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1.2s forwards;
-            animation-delay: 0.3s;
-        }
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    min-width: 280px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.2s forwards;
+    animation-delay: 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones para el zoom */
+}
+
+.mission:hover, .vision:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al hacer hover */
+}
+
 
         /* Animación al aparecer en pantalla */
         @keyframes fadeInUp {
