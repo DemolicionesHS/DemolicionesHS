@@ -36,11 +36,11 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 1.2rem;
-            transition: color 0.3s ease; /* Transición suave para el hover */
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: #ff6347; /* Cambia el color al pasar el ratón */
+            color: #ff6347;
         }
 
         .container {
@@ -49,10 +49,9 @@
             margin: 20px auto;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeIn 1s forwards; /* Animación de desvanecimiento al cargar */
+            animation: fadeIn 1s forwards;
         }
 
-        /* Animación al cargar */
         @keyframes fadeIn {
             to {
                 opacity: 1;
@@ -66,7 +65,6 @@
             text-align: center;
         }
 
-        /* Estilos de la sección Misión y Visión */
         .mission-vision {
             display: flex;
             justify-content: space-between;
@@ -75,26 +73,24 @@
         }
 
         .mission, .vision {
-    flex: 1;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    min-width: 280px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1.2s forwards;
-    animation-delay: 0.3s;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones para el zoom */
-}
+            flex: 1;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 280px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s forwards;
+            animation-delay: 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.mission:hover, .vision:hover {
-    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al hacer hover */
-}
+        .mission:hover, .vision:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
 
-
-        /* Animación al aparecer en pantalla */
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -102,12 +98,6 @@
             }
         }
 
-        .mission h2, .vision h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        /* Estilos de la galería de imágenes */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -120,15 +110,14 @@
             height: auto;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación de zoom */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .gallery img:hover {
-            transform: scale(1.05); /* Efecto zoom al pasar el cursor */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Sombra más fuerte al hacer hover */
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* Estilos del formulario de contacto */
         .contact-form {
             background-color: white;
             padding: 20px;
@@ -159,12 +148,12 @@
             margin-bottom: 20px;
             border-radius: 5px;
             border: 1px solid #ccc;
-            transition: border-color 0.3s ease; /* Efecto en los campos de formulario */
+            transition: border-color 0.3s ease;
         }
 
         .contact-form input:focus, 
         .contact-form textarea:focus {
-            border-color: #ff6347; /* Cambia el borde al hacer foco */
+            border-color: #ff6347;
         }
 
         .contact-form button {
@@ -177,11 +166,11 @@
             border-radius: 5px;
             font-size: 1.2rem;
             cursor: pointer;
-            transition: background-color 0.3s ease; /* Transición en hover */
+            transition: background-color 0.3s ease;
         }
 
         .contact-form button:hover {
-            background-color: #ff6347; /* Cambio de color del botón al hacer hover */
+            background-color: #ff6347;
         }
 
         footer {
@@ -190,6 +179,90 @@
             text-align: center;
             padding: 20px;
             margin-top: 40px;
+        }
+
+        /* Estilos del asistente virtual */
+        .chatbot {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            display: none; /* Oculto por defecto */
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .chat-header {
+            background-color: #222;
+            color: white;
+            padding: 10px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-body {
+            padding: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .bot-message {
+            background-color: #f1f1f1;
+            text-align: left;
+        }
+
+        .user-message {
+            background-color: #ff6347;
+            color: white;
+            text-align: right;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 100px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #222;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff6347;
+        }
+
+        .open-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff6347;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
         }
 
         /* Media Queries para hacer la página responsive */
@@ -232,88 +305,7 @@
             nav a {
                 font-size: 0.9rem;
             }
-            /* Estilos del asistente virtual */
-.chatbot {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 300px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    display: none; /* Oculto por defecto */
-    flex-direction: column;
-}
-
-.chat-header {
-    background-color: #222;
-    color: white;
-    padding: 10px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.chat-body {
-    padding: 10px;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.chat-message {
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.bot-message {
-    background-color: #f1f1f1;
-    text-align: left;
-}
-
-.user-message {
-    background-color: #ff6347;
-    color: white;
-    text-align: right;
-}
-
-input[type="text"] {
-    width: calc(100% - 100px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #222;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #ff6347; /* Cambia el color al pasar el ratón */
-}
-
-.open-chat {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #ff6347;
-    border: none;
-    border-radius: 50%;
-    padding: 15px;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
-
- }
+        }
     </style>
 </head>
 <body>
@@ -335,17 +327,15 @@ button:hover {
                 <div class="mission">
                     <h2>Misión</h2>
                     <p>
-                        En Demoliciones HST, nuestra misión es proporcionar servicios de demolición de alta calidad, 
-                        con un enfoque en la seguridad, la eficiencia y la satisfacción del cliente. Trabajamos para 
-                        desmantelar estructuras de manera responsable y sostenible.
+                        En Demoliciones HS, nuestra misión es proporcionar servicios de demolición de alta calidad y 
+                        garantizar la seguridad y satisfacción de nuestros clientes.
                     </p>
                 </div>
                 <div class="vision">
                     <h2>Visión</h2>
                     <p>
-                        Nuestra visión es ser la empresa líder en demoliciones y reparaciones a nivel nacional, destacándonos por 
-                        nuestro compromiso con el medio ambiente, la innovación en técnicas de demolición y la excelencia 
-                        en la ejecución de nuestros proyectos.
+                        Nuestra visión es ser la empresa líder en demoliciones a nivel nacional, destacando por nuestra 
+                        innovación y compromiso con el medio ambiente.
                     </p>
                 </div>
             </div>
@@ -353,16 +343,17 @@ button:hover {
 
         <!-- Galería -->
         <section id="galeria">
-            <h2 class="section-title">Galería de Proyectos</h2>
+            <h2 class="section-title">Galería</h2>
             <div class="gallery">
-                <img src="https://via.placeholder.com/400" alt="Proyecto 1">
-                <img src="https://via.placeholder.com/400" alt="Proyecto 2">
-                <img src="https://via.placeholder.com/400" alt="Proyecto 3">
-                <img src="https://via.placeholder.com/400" alt="Proyecto 4">
+                <img src="https://via.placeholder.com/200" alt="Galería de Demoliciones 1">
+                <img src="https://via.placeholder.com/200" alt="Galería de Demoliciones 2">
+                <img src="https://via.placeholder.com/200" alt="Galería de Demoliciones 3">
+                <img src="https://via.placeholder.com/200" alt="Galería de Demoliciones 4">
+                <img src="https://via.placeholder.com/200" alt="Galería de Demoliciones 5">
             </div>
         </section>
 
-        <!-- Formulario de Contacto -->
+        <!-- Contacto -->
         <section id="contacto">
             <h2 class="section-title">Contacto</h2>
             <form class="contact-form">
@@ -375,19 +366,7 @@ button:hover {
 
                 <label for="message">Mensaje</label>
                 <textarea id="message" name="message" rows="4" placeholder="Tu mensaje" required></textarea>
- <!-- Asistente Virtual -->
-<div class="chatbot">
-    <div class="chat-header">
-        <h2>Asistente Virtual</h2>
-        <button class="close-chat" onclick="toggleChat()">✖</button>
-    </div>
-    <div class="chat-body" id="chatBody">
-        <div class="chat-message bot-message">¡Hola! ¿En qué puedo ayudarte hoy?</div>
-    </div>
-    <input type="text" id="userInput" placeholder="Escribe tu mensaje..." onkeydown="if(event.key === 'Enter'){sendMessage();}">
-    <button onclick="sendMessage()">Enviar</button>
-</div>
-<button class="open-chat" onclick="toggleChat()">🗨️</button>
+
                 <button type="submit">Enviar</button>
             </form>
         </section>
@@ -397,5 +376,62 @@ button:hover {
         <p>© 2024 Demoliciones HST. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Asistente Virtual -->
+    <div class="chatbot">
+        <div class="chat-header">
+            <h2>Asistente Virtual</h2>
+            <button class="close-chat" onclick="toggleChat()">✖</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message bot-message">¡Hola! ¿En qué puedo ayudarte hoy?</div>
+        </div>
+        <input type="text" id="userInput" placeholder="Escribe tu mensaje..." onkeydown="if(event.key === 'Enter'){sendMessage();}">
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
+    <button class="open-chat" onclick="toggleChat()">🗨️</button>
+
+    <script>
+        function toggleChat() {
+            const chatbot = document.querySelector('.chatbot');
+            chatbot.style.display = chatbot.style.display === 'none' || chatbot.style.display === '' ? 'flex' : 'none';
+        }
+
+        function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const chatBody = document.getElementById('chatBody');
+            
+            if (userInput.value.trim() === '') return;
+
+            // Mostrar el mensaje del usuario
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('chat-message', 'user-message');
+            userMessage.textContent = userInput.value;
+            chatBody.appendChild(userMessage);
+
+            // Respuesta del bot
+            let botResponse;
+            const userMessageText = userInput.value.toLowerCase();
+            if (userMessageText.includes('misión')) {
+                botResponse = "Nuestra misión es proporcionar servicios de demolición de alta calidad.";
+            } else if (userMessageText.includes('visión')) {
+                botResponse = "Nuestra visión es ser la empresa líder en demoliciones a nivel nacional.";
+            } else if (userMessageText.includes('contacto')) {
+                botResponse = "Puedes contactarnos a través de nuestro formulario en la página.";
+            } else {
+                botResponse = "Lo siento, no entiendo tu pregunta. ¿Puedes intentar de nuevo?";
+            }
+
+            // Mostrar la respuesta del bot
+            const botMessage = document.createElement('div');
+            botMessage.classList.add('chat-message', 'bot-message');
+            botMessage.textContent = botResponse;
+            chatBody.appendChild(botMessage);
+
+            // Limpiar el campo de entrada
+            userInput.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight; // Desplazar hacia abajo
+        }
+    </script>
 </body>
 </html>
+
