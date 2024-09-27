@@ -232,7 +232,20 @@
             nav a {
                 font-size: 0.9rem;
             }
-        }
+       <!-- Asistente Virtual -->
+<div class="chatbot">
+    <div class="chat-header">
+        <h2>Asistente Virtual</h2>
+        <button class="close-chat" onclick="toggleChat()">✖</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <div class="chat-message bot-message">¡Hola! ¿En qué puedo ayudarte hoy?</div>
+    </div>
+    <input type="text" id="userInput" placeholder="Escribe tu mensaje..." onkeydown="if(event.key === 'Enter'){sendMessage();}">
+    <button onclick="sendMessage()">Enviar</button>
+</div>
+<button class="open-chat" onclick="toggleChat()">🗨️</button>
+ }
     </style>
 </head>
 <body>
